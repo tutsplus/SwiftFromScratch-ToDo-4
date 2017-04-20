@@ -10,7 +10,7 @@ import UIKit
 
 protocol AddItemViewControllerDelegate {
 
-    func controller(_ controller: AddItemViewController, didAddItem: String)
+    func controller(_ controller: AddItemViewController, didAddItem: ToDo)
     
 }
 
@@ -33,7 +33,11 @@ class AddItemViewController: UIViewController {
     }
 
     @IBAction func create(_ sender: Any) {
-        if let item = textField.text {
+        if let name = textField.text {
+            // Create Item
+            let item = ToDo(name: name, done: false)
+
+            // Notify Delegate
             delegate?.controller(self, didAddItem: item)
         }
     }
