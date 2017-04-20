@@ -29,13 +29,23 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="qFp-os-Yxp"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You don't have any to-dos." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iIa-ba-Wui">
+                                <rect key="frame" x="20" y="84" width="335" height="563"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="iIa-ba-Wui" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="HZ8-tB-R0H"/>
+                            <constraint firstAttribute="trailing" secondItem="iIa-ba-Wui" secondAttribute="trailing" constant="20" id="RS3-qV-Ryr"/>
                             <constraint firstItem="Re0-Oh-6SD" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="arA-yH-bdf"/>
                             <constraint firstItem="Re0-Oh-6SD" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ba8-B8-yXV"/>
+                            <constraint firstItem="iIa-ba-Wui" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="bzM-0y-1Kb"/>
                             <constraint firstAttribute="trailing" secondItem="Re0-Oh-6SD" secondAttribute="trailing" id="eVG-AL-N8Z"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Re0-Oh-6SD" secondAttribute="bottom" id="faQ-ek-3gT"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="iIa-ba-Wui" secondAttribute="bottom" constant="20" id="yTD-zp-kaQ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ogk-De-Mh8">
@@ -46,6 +56,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="messageLabel" destination="iIa-ba-Wui" id="Yz1-fA-6Lg"/>
                         <outlet property="tableView" destination="Re0-Oh-6SD" id="nGT-s5-xHa"/>
                     </connections>
                 </viewController>
