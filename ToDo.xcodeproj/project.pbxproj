@@ -12,6 +12,7 @@
 		CC10CAE31EA8861A00F82C81 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC10CAE11EA8861A00F82C81 /* Main.storyboard */; };
 		CC10CAE51EA8861A00F82C81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC10CAE41EA8861A00F82C81 /* Assets.xcassets */; };
 		CC10CAE81EA8861A00F82C81 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC10CAE61EA8861A00F82C81 /* LaunchScreen.storyboard */; };
+		CC11CA221EA8946700BE0271 /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC11CA211EA8946700BE0271 /* AddItemViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		CC10CAE41EA8861A00F82C81 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CC10CAE71EA8861A00F82C81 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CC10CAE91EA8861A00F82C81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CC11CA211EA8946700BE0271 /* AddItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			children = (
 				CC10CADD1EA8861A00F82C81 /* AppDelegate.swift */,
 				CC10CADF1EA8861A00F82C81 /* ViewController.swift */,
+				CC11CA211EA8946700BE0271 /* AddItemViewController.swift */,
 				CC10CAE11EA8861A00F82C81 /* Main.storyboard */,
 				CC10CAE41EA8861A00F82C81 /* Assets.xcassets */,
 				CC10CAE61EA8861A00F82C81 /* LaunchScreen.storyboard */,
@@ -139,6 +142,7 @@
 			files = (
 				CC10CAE01EA8861A00F82C81 /* ViewController.swift in Sources */,
 				CC10CADE1EA8861A00F82C81 /* AppDelegate.swift in Sources */,
+				CC11CA221EA8946700BE0271 /* AddItemViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,6 +306,7 @@
 				CC10CAEE1EA8861A00F82C81 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

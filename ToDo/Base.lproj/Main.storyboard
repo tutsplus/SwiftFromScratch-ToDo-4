@@ -38,7 +38,13 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Re0-Oh-6SD" secondAttribute="bottom" id="faQ-ek-3gT"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="ogk-De-Mh8"/>
+                    <navigationItem key="navigationItem" id="ogk-De-Mh8">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Ppk-9y-aO3">
+                            <connections>
+                                <segue destination="OKb-yb-96Y" kind="presentation" identifier="AddItemViewController" id="idB-Wb-KMs"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="Re0-Oh-6SD" id="nGT-s5-xHa"/>
                     </connections>
@@ -46,6 +52,51 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1469.5999999999999" y="115.59220389805098"/>
+        </scene>
+        <!--Add Item View Controller-->
+        <scene sceneID="E2S-eW-fLO">
+            <objects>
+                <viewController id="SYM-lH-ch3" customClass="AddItemViewController" customModule="ToDo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Yux-l9-GDK"/>
+                        <viewControllerLayoutGuide type="bottom" id="qOJ-z9-zb7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="LCf-KK-NBi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MTe-24-5cT">
+                                <rect key="frame" x="87" y="72" width="200" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bhk-1P-tsh">
+                                <rect key="frame" x="164" y="110" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Create"/>
+                                <connections>
+                                    <action selector="create:" destination="SYM-lH-ch3" eventType="touchUpInside" id="BJA-MT-oSy"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="KBt-9S-esi">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="GdB-zg-cD1">
+                            <connections>
+                                <action selector="cancel:" destination="SYM-lH-ch3" id="dRz-wT-yTf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="textField" destination="MTe-24-5cT" id="inb-cI-lth"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YvS-DN-bHC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1469.5999999999999" y="867.61619190404804"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="edR-Sl-bBp">
@@ -64,6 +115,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dBI-aC-hWG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="608.79999999999995" y="116.49175412293854"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="IDy-nx-aTn">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OKb-yb-96Y" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8zy-1K-ijW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="SYM-lH-ch3" kind="relationship" relationship="rootViewController" id="C9d-OG-UFX"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XzC-rX-YDi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="609" y="868"/>
         </scene>
     </scenes>
 </document>

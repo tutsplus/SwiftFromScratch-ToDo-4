@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, AddItemViewControllerDelegate {
 
     @IBOutlet var tableView: UITableView!
 
@@ -31,6 +31,17 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         super.didReceiveMemoryWarning()
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "AddItemViewController" {
+            let navigationController = segue.destination as? UINavigationController
+            let addItemViewController = navigationController?.topViewController as? AddItemViewController
+
+            if let viewController = addItemViewController {
+                viewController.delegate = self
+            }
+        }
+    }
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
     }
@@ -46,6 +57,19 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         cell.textLabel?.text = item
         
         return cell
+    }
+
+    // MARK: Add Item View Controller Delegate Methods
+
+    func controller(_ controller: AddItemViewController, didAddItem: String) {
+        // Update Data Source
+        items.append(didAddItem)
+
+        // Reload Table View
+        tableView.reloadData()
+
+        // Dismiss Add Item View Controller
+        dismiss(animated: true)
     }
 
 }
