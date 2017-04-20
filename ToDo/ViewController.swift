@@ -13,7 +13,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet var messageLabel: UILabel!
     @IBOutlet var tableView: UITableView!
 
-    var items: [String] = [] {
+    var items: [ToDo] = [] {
         didSet(oldValue) {
             let hasItems = items.count > 0
             tableView.isHidden = !hasItems
@@ -29,12 +29,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         // Set Title
         title = "To Do"
 
-        // Populate Items
-        items = ["Buy Milk", "Finish Tutorial", "Play Minecraft"]
-
         // Load State
         loadItems()
-        loadCheckedItems()
 
         // Register Class for Cell Reuse
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "TableViewCell")
@@ -69,13 +65,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath)
 
         // Configure Cell
-        cell.textLabel?.text = item
-
-        if checkedItems.contains(item) {
-            cell.accessoryType = .checkmark
-        } else {
-            cell.accessoryType = .none
-        }
+        cell.textLabel?.text = item.name
+        cell.accessoryType = item.done ? .checkmark : .none
 
         return cell
     }
@@ -86,22 +77,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Fetch Item
-            let item = items[indexPath.row]
-
             // Update Items
             items.remove(at: indexPath.row)
-
-            if let index = checkedItems.index(of: item) {
-                checkedItems.remove(at: index)
-            }
 
             // Update Table View
             tableView.deleteRows(at: [indexPath], with: .right)
 
             // Save State
             saveItems()
-            saveCheckedItems()
         }
     }
 
@@ -113,27 +96,22 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         // Fetch Item
         let item = items[indexPath.row]
 
+        // Update Item
+        item.done = !item.done
+
         // Fetch Cell
         let cell = tableView.cellForRow(at: indexPath)
 
-        // Find Index of Item
-        let index = checkedItems.index(of: item)
-
-        if let index = index {
-            checkedItems.remove(at: index)
-            cell?.accessoryType = .none
-        } else {
-            checkedItems.append(item)
-            cell?.accessoryType = .checkmark
-        }
+        // Update Cell
+        cell?.accessoryType = item.done ? .checkmark : .none
 
         // Save State
-        saveCheckedItems()
+        saveItems()
     }
 
     // MARK: Add Item View Controller Delegate Methods
 
-    func controller(_ controller: AddItemViewController, didAddItem: String) {
+    func controller(_ controller: AddItemViewController, didAddItem: ToDo) {
         // Update Data Source
         items.append(didAddItem)
 
@@ -150,37 +128,34 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     // MARK: Private Helper Methods
 
     private func loadItems() {
-        let userDefaults = UserDefaults.standard
+        let path = pathForItems()
 
-        if let items = userDefaults.object(forKey: "items") as? [String] {
+        if let items = NSKeyedUnarchiver.unarchiveObject(withFile: path) as? [ToDo] {
             self.items = items
-        }
-    }
-
-    private func loadCheckedItems() {
-        let userDefaults = UserDefaults.standard
-
-        if let checkedItems = userDefaults.object(forKey: "checkedItems") as? [String] {
-            self.checkedItems = checkedItems
         }
     }
 
     // MARK: -
 
     private func saveItems() {
-        let userDefaults = UserDefaults.standard
+        let path = pathForItems()
 
-        // Update User Defaults
-        userDefaults.set(items, forKey: "items")
-        userDefaults.synchronize()
+        if NSKeyedArchiver.archiveRootObject(self.items, toFile: path) {
+            print("Successfully Saved")
+        } else {
+            print("Saving Failed")
+        }
     }
 
-    private func saveCheckedItems() {
-        let userDefaults = UserDefaults.standard
+    // MARK: -
 
-        // Update User Defaults
-        userDefaults.set(checkedItems, forKey: "checkedItems")
-        userDefaults.synchronize()
+    private func pathForItems() -> String {
+        guard let documentsDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first,
+              let url = URL(string: documentsDirectory) else {
+            fatalError("Documents Directory Not Found")
+        }
+
+        return url.appendingPathComponent("items").path
     }
 
 }
