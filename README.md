@@ -1,9 +1,9 @@
-### Envato Tuts+ Tutorial: Swift From Scratch: Access Control and Property Observers
+### Envato Tuts+ Tutorial: Swift From Scratch: Initialization and Initializer Delegation
 
 #### Instructor: Bart Jacobs
 
-In the previous tutorial, we added the ability to create to-do items. While this addition has made the application a bit more useful, it would also be convenient to add the ability to mark items as done and delete items. That's what we'll focus on in this tutorial.
+In the previous lessons of Swift from Scratch, we created a functional to-do application. The data model could use some love though. In this lesson, we're going to refactor the data model by implementing a custom model class.
 
-Source files for the Envato Tuts+ tutorial: [Swift From Scratch: Access Control and Property Observers](https://code.tutsplus.com/tutorials/swift-from-scratch-access-control-and-property-observers--cms-23487)
+Source files for the Envato Tuts+ tutorial: [Swift From Scratch: Initialization and Initializer Delegation](https://code.tutsplus.com/tutorials/swift-from-scratch-initialization-and-initializer-delegation--cms-23538)
 
 **Read this tutorial on [Envato Tuts+](https://code.tutsplus.com)**
