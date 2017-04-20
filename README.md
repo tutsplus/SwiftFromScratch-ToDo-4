@@ -1,9 +1,9 @@
-### Envato Tuts+ Tutorial: Swift From Scratch: Delegation and Properties
+### Envato Tuts+ Tutorial: Swift From Scratch: Access Control and Property Observers
 
 #### Instructor: Bart Jacobs
 
-In the previous lesson, you created your first Swift project in Xcode, a simple to-do application. In this installment of Swift From Scratch, we're going to add the ability to create to-do items. Along the way, you learn about actions, delegation, and properties.
+In the previous tutorial, we added the ability to create to-do items. While this addition has made the application a bit more useful, it would also be convenient to add the ability to mark items as done and delete items. That's what we'll focus on in this tutorial.
 
-Source files for the Envato Tuts+ tutorial: [Swift From Scratch: Delegation and Properties](https://code.tutsplus.com/tutorials/swift-from-scratch-delegation-and-properties--cms-23445)
+Source files for the Envato Tuts+ tutorial: [Swift From Scratch: Access Control and Property Observers](https://code.tutsplus.com/tutorials/swift-from-scratch-access-control-and-property-observers--cms-23487)
 
 **Read this tutorial on [Envato Tuts+](https://code.tutsplus.com)**
